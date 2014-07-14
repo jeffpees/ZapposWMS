@@ -203,7 +203,7 @@ public class Packager {
 
         int boxSize = 9;
 
-        while (!isComplete(completeOrder)) {
+        while (!isComplete(completeOrder)) {  //loops until every item is boxed
 
             for (int x = 0; x < completeOrder.size(); x++) {
 
@@ -211,7 +211,6 @@ public class Packager {
 
                 if (full) { //if full, increments the boxID, resets boxSize variable, assigns ID to ordered item, subtracts boxSize, and advises that it has been boxed
 
-                    // System.out.println("Out of room! Need a new box.");
                     boxID++;
                     boxSize = 9;
                     completeOrder.get(x).boxNumber = boxID;
