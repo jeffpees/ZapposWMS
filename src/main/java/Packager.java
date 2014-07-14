@@ -1,3 +1,5 @@
+package main.java;
+
 import java.util.*;
 
 /**
@@ -81,7 +83,7 @@ public class Packager {
     ArrayList<ArrayList<Item>> listOfOrders = new ArrayList<ArrayList<Item>>();
 
 
-    private int orderNumber = 1, boxID = 0, setNums = 50;
+    private int orderNumber = 1, boxID = 1, setNums = 50;
 
 
     public static void main(String[] args) {
@@ -201,6 +203,56 @@ public class Packager {
 
         int boxSize = 9;
 
+        while (!isComplete(completeOrder)) {
+
+            for (int x = 0; x < completeOrder.size(); x++) {
+
+                boolean full = isFull(boxSize, completeOrder.get(x).size);
+
+                if (full) { //if full, increments the boxID, resets boxSize variable, assigns ID to ordered item, subtracts boxSize, and advises that it has been boxed
+
+                    // System.out.println("Out of room! Need a new box.");
+                    boxID++;
+                    boxSize = 9;
+                    completeOrder.get(x).boxNumber = boxID;
+                    boxSize -= completeOrder.get(x).size;
+                    completeOrder.get(x).status = "boxed";
+                    continue;
+                }
+                else if (!full) { //subtracts from boxSize, assigns ID to ordered item, and updates the status
+                    boxSize -= completeOrder.get(x).size;
+                    completeOrder.get(x).boxNumber = boxID;
+                    completeOrder.get(x).status = "boxed";
+                    continue;
+                }
+
+            }
+
+        }
+
+        return completeOrder;
+    }
+
+    public boolean isComplete (ArrayList<Item> completeOrder) {
+
+        for (int x = 0; x < completeOrder.size(); x++ ) {
+
+            if (completeOrder.get(x).status.equals("unboxed")) {
+
+                return false;
+
+            }
+
+        }
+
+        return true;
+
+    }
+
+/*    public ArrayList<Item> boxOrder_old (ArrayList<Item> completeOrder) {
+
+        int boxSize = 9;
+
 
 
         uniqueSet.addAll(completeOrder);
@@ -228,13 +280,13 @@ public class Packager {
                         boxSize = 9;
                         completeOrder.get(y).boxNumber = boxID;
                         boxSize -= completeOrder.get(y).size;
-                        completeOrder.get(y).status = "boxed - starting new box";
+                        completeOrder.get(y).status = "boxed";
                         continue;
                     }
                     else if (!full) { //subtracts from boxSize, assigns ID to ordered item, and updates the status
                         boxSize -= completeOrder.get(y).size;
                         completeOrder.get(y).boxNumber = boxID;
-                        completeOrder.get(y).status = "boxed - filling box";
+                        completeOrder.get(y).status = "boxed";
                         continue;
                     }
 
@@ -248,6 +300,7 @@ public class Packager {
 
 
     }
+*/
 
     public boolean isFull (int boxSize, int typeSize) {
 
