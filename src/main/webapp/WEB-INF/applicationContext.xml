@@ -1,0 +1,9 @@
+<context:annotation-config xmlns:context="http://www.springframework.org/schema/context"/>
+<context:component-scan base-package="main.mypack.controller" />
+
+<mvc:resources location="/assets/" mapping="/assets/**" />
+
+<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<property name="prefix" value="/WEB-INF/jsp/" />
+<property name="suffix" value=".jsp"/>
+</bean>
