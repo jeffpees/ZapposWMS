@@ -23,14 +23,28 @@
     </dependencies>
 
     <properties>
-        <start-class>hello.Application</start-class>
+        <start-class>java.Packager</start-class>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mortbay.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
