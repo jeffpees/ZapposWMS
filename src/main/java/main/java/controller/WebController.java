@@ -1,5 +1,6 @@
 package main.java.controller;
 
+import main.java.Packager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -21,9 +22,22 @@ public class WebController {
 
     @RequestMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("greeting", "Welcome to Web Store!");
-        model.addAttribute("tagline", "The one and only amazing webstore");
+        model.addAttribute("greeting", "ZWMS");
+        model.addAttribute("tagline", "Let's package this order!");
 
         return "welcome";
     }
+
+    /* @RequestMapping(value = "/test", method = RequestMethod.POST)
+    @ResponseBody
+    public Map<String, Integer> test(@RequestBody Map<String, Integer> arguments) {
+        System.out.println(arguments);
+        return arguments;
+    }
+
+    @RequestMapping("/package")
+    public String list(Model model) {
+        model.addAttribute("order", Packager.());
+        return "order";
+    }     */
 }
