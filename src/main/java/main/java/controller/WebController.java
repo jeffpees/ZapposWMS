@@ -1,4 +1,4 @@
-package main.java;
+package main.java.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,20 +19,11 @@ import java.util.Map;
 @Controller
 public class WebController {
 
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    @ResponseBody
-    public Map<String, Integer> test(@RequestBody Map<String, Integer> arguments) {
-        System.out.println(arguments);
-        return arguments;
-    }
-
-    @RequestMapping(value = "/welcome")
+    @RequestMapping("/")
     public String welcome(Model model) {
-        model.addAttribute("greeting", "Welcome!");
-
+        model.addAttribute("greeting", "Welcome to Web Store!");
+        model.addAttribute("tagline", "The one and only amazing webstore");
 
         return "welcome";
     }
-
-
 }
