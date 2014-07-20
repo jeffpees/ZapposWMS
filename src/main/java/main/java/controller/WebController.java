@@ -1,12 +1,11 @@
 package main.java.controller;
 
+import main.java.TestOrder;
 import main.java.Packager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,13 +19,33 @@ import java.util.Map;
 @Controller
 public class WebController {
 
-    @RequestMapping("/")
+    /*@RequestMapping("/")
     public String welcome(Model model) {
         model.addAttribute("greeting", "ZWMS");
         model.addAttribute("tagline", "Let's package this order!");
 
         return "welcome";
+    }   */
+
+    TestOrder tOrder = new TestOrder(99, "dress", 42, 88);
+    private int ordnum = tOrder.getTestorderNumber();
+    private String ttype = tOrder.getTesttype();
+    private int tsize = tOrder.getTestsize();
+    private int tbnum = tOrder.getTestboxNumber();
+
+
+    @RequestMapping(value = "/test", method = RequestMethod.POST)
+    public String display(@RequestParam(value="Order", required=true, defaultValue="error") int tOrder) {
+        return display(tOrder);
     }
+
+
+
+
+
+
+
+
 
     /* @RequestMapping(value = "/test", method = RequestMethod.POST)
     @ResponseBody
