@@ -57,4 +57,7 @@ public class TestOrder {
     public void setTestboxNumber(int testboxNumber) {
         this.testboxNumber = testboxNumber;
     }
+
 }
+
+

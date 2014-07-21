@@ -5,7 +5,7 @@ import main.java.Packager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.bind.annotation.RestController;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,17 +16,15 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 
-@Controller
+@RestController
 public class WebController {
 
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/test")
     @ResponseBody
-    public String display(Model model) {
-        TestOrder tOrder = new TestOrder(1, "pants", 99, 88);
-        model.addAttribute("welcome", tOrder);
+    public TestOrder test() {
+        TestOrder t = new TestOrder(1, "test", 3, 4);
+        return t;
 
-
-        return("welcome");
     }
 }
 
@@ -40,7 +38,7 @@ public class WebController {
 
 
 
-    /* @RequestMapping(value = "/test", method = RequestMethod.POST)
+    /* @RequestMapping(value = "/test", method = RequestMethod.GET)
     @ResponseBody
     public Map<String, Integer> test(@RequestBody Map<String, Integer> arguments) {
         System.out.println(arguments);
