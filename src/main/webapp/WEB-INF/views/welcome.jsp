@@ -10,10 +10,21 @@
 <section>
     <div class="jumbotron">
         <div class="container">
-            <p> Order Number: ${welcome.testorderNumber} </p>
-            <p> Type: ${welcome.testtype} </p>
-            <p> Size: ${welcome.testsize} </p>
-            <p> Box Number: ${welcome.testboxNumber} </p>
+            <table class="table">
+                <th>Package Order</th>
+                <tr>
+                    <td>Order Number</td>
+                    <td>Type</td>
+                    <td>Size</td>
+                    <td>Box Number</td>
+                </tr>
+                <tr>
+                    <td>${welcome.testorderNumber}</td>
+                    <td>${welcome.testtype} </td>
+                    <td>${welcome.testsize} </td>
+                    <td>${welcome.testboxNumber}</td>
+                </tr>
+            </table>
         </div>
     </div>
 </section>
