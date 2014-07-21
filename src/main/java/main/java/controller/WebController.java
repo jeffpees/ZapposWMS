@@ -35,8 +35,8 @@ public class WebController {
 
 
     @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public String display(@RequestParam(value="Order", required=true, defaultValue="error") int tOrder) {
-        return display(tOrder);
+    public String display(@RequestParam(value="Order", required=true, defaultValue="error") int dontknow) {
+        return display(ordnum);
     }
 
 
