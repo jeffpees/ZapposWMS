@@ -9,20 +9,21 @@ package main.java;
  */
 public class TestOrder {
 
-    private final int testorderNumber;
-    private final String testtype;
-    private final int testsize;
-    private final int testboxNumber;
+    private int testorderNumber;
+    private String testtype;
+    private int testsize;
+    private int testboxNumber;
 
+    public TestOrder() {
+        super();
+    }
 
-    public testorder(int testorderNumber, String testtype, int testsize, int testboxNumber) {
+    public TestOrder(int testorderNumber, String testtype, int testsize, int testboxNumber) {
         this.testorderNumber = testorderNumber;
         this.testtype = testtype;
         this.testsize = testsize;
         this.testboxNumber = testboxNumber;
     }
-
-
 
 
     public int getTestorderNumber() {
@@ -39,5 +40,21 @@ public class TestOrder {
 
     public int getTestboxNumber() {
         return testboxNumber;
+    }
+
+    public void setTestorderNumber(int testorderNumber) {
+        this.testorderNumber = testorderNumber;
+    }
+
+    public void setTesttype(String testtype) {
+        this.testtype = testtype;
+    }
+
+    public void setTestsize(int testsize) {
+        this.testsize = testsize;
+    }
+
+    public void setTestboxNumber(int testboxNumber) {
+        this.testboxNumber = testboxNumber;
     }
 }

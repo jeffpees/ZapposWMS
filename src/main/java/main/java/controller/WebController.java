@@ -27,16 +27,20 @@ public class WebController {
         return "welcome";
     }   */
 
-    TestOrder tOrder = new TestOrder(99, "dress", 42, 88);
+    /*TestOrder tOrder = new TestOrder(99, "dress", 42, 88);
     private int ordnum = tOrder.getTestorderNumber();
     private String ttype = tOrder.getTesttype();
     private int tsize = tOrder.getTestsize();
-    private int tbnum = tOrder.getTestboxNumber();
+    private int tbnum = tOrder.getTestboxNumber();  */
 
 
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public String display(@RequestParam(value="Order", required=true, defaultValue="error") int dontknow) {
-        return display(ordnum);
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String display(Model model) {
+        TestOrder tOrder = new TestOrder(1, "pants", 99, 88);
+        model.addAttribute("welcome", tOrder);
+
+
+        return("welcome");
     }
 
 

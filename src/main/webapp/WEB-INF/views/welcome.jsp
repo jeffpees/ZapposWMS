@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
 <head>
@@ -10,8 +10,10 @@
 <section>
     <div class="jumbotron">
         <div class="container">
-            <p> ${greeting} </p>
-            <p> ${tagline} </p>
+            <p> Order Number: ${welcome.testorderNumber} </p>
+            <p> Type: ${welcome.testtype} </p>
+            <p> Size: ${welcome.testsize} </p>
+            <p> Box Number: ${welcome.testboxNumber} </p>
         </div>
     </div>
 </section>
